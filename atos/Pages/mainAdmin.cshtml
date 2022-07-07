@@ -1,0 +1,126 @@
+﻿@page
+@model atos.Pages.mainAdminModel
+@{
+    ViewData["Title"] = "Admin Page";
+    Layout = "_Layout2";
+}
+@*<h1>Welcome, @ViewData["ad_nombre"]</h1>
+    <table class="table table-responsive table-bordered">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ListaUsuarios)
+            {
+
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.apellido)</td>
+                    <td>@Html.DisplayFor(modelItem => item.correo)</td>
+                </tr>
+            }
+        </tbody>
+    </table>*@
+<link rel="stylesheet" href="css/mainAdmin.css">
+<div class="contenido">
+
+    <div class="card mt-4 mb-3">
+        <div class="titulo mt-2 mb-2">
+            <h1>Admin_@ViewData["ad_nombre"]_@ViewData["ad_apellido"]</h1>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                <div class="form-row">
+                    @*<div class="form-group col-md-3">
+                        <label for="inputSearch">Search</label>
+                        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" asp-for="search"/>
+                    </div>*@
+                    <div class="form-group col-md-3">
+                        <label for="inputProfile">Profile</label>
+                        <select id="inputProfile" class="form-control" asp-for="profile">
+                            <option selected disabled value="0">Choose...</option>
+                            @foreach (var item in Model.ListaPerfil)
+                            {
+                                <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputStatus">Status</label>
+                        <select id="inputStatus" class="form-control" asp-for="status">
+                            <option selected disabled value="0">Choose...</option>
+                            <option value="1">On Progress</option>
+                            <option value="2">Done</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputOrderBy">Order by</label>
+                        <select id="inputOrderBy" class="form-control" asp-for="order">
+                            <option selected disabled value="0">Choose...</option>
+                            <option value="1">Name ASC</option>
+                            <option value="2">Name DESC</option>
+                            <option value="3">Score ASC</option>
+                            <option value="4">Score DESC</option>
+                        </select>
+                    </div>
+                    <div class="form-row col-md-2">
+                        <button asp-page-handler="filter" class="btn btn-primary mt-4">Search</button>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <button asp-page-handler="clear" class="btn btn-danger mt-4">X</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+                <div class="form-row">
+                    <div class="col-md-3">
+                        <label for="inputTitleName">Name</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inputTitleProfile">Profile</label>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputTitleStatus">Status</label>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputTitleGameScore">Game Score</label>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                @foreach (var item in Model.ListaUsuarios)
+                {
+                    <div class="card_ren mt-2 mb-2" id="card_ren">
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <label for="inputName">@Html.DisplayFor(modelItem => item.nombre) @Html.DisplayFor(modelItem => item.apellido)</label>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputProfile">@Html.DisplayFor(modelItem => item.perfil)</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputStatus">@Html.DisplayFor(modelItem => item.status)</label>
+                            </div>
+                            <div class="col-md-2">
+                                <label for="inputGameScore" id="gameScore">@Html.DisplayFor(modelItem => item.puntuacion)</label>
+                            </div>
+                            <form method="post" asp-page-handler="cv">
+                                <div class="col-md-2">
+                                    <input asp-for="id_aplicante" style="display: none" value="@Html.ValueFor(modelItem => item.id)"/>
+                                    <button type="submit" class="down" id="down_cv">Download</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                }
+
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,58 @@
+@charset "utf.8";
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&display=swap');
+
+body {
+    background: url("../img/Pagina1.jpeg") !important;
+    height: 100vh;
+    background-size: cover !important;
+    background-position: center center;
+    position: relative;
+}
+
+.welcome-text {
+    margin: 300px auto;
+    text-align: center;
+}
+
+    .welcome-text h1 {
+        text-align: center;
+        color: #fff;
+        font-size: 80px;
+    }
+
+
+    .welcome-text p {
+        color: #fff;
+        font-size: 30px;
+    }
+
+#apply {
+    background-color: #ffc72d;
+    font-weight: bold;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#login {
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+    #login:hover {
+        background-color: #ffc72d;
+    }
+
+#apply:hover {
+    background-color: #ffd256;
+    color: #303030;
+}

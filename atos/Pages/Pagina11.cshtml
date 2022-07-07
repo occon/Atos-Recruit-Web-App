@@ -1,0 +1,12 @@
+﻿@page
+@model atos.Pages.Pagina11Model
+@{
+}
+
+<div>
+    <form method="post">
+        <input type="text" asp-for="Nombre" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+        <input type="submit" value="Aceptar" />
+    </form>
+</div>

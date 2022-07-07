@@ -1,0 +1,200 @@
+﻿@page
+@model atos.Pages.cvFormatModel
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Format</title>
+    <link rel="stylesheet" href="~/css/CV.css">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+</head>
+<body>
+
+    <div class="resume">
+        <div class="resume_left">
+            <div class="resume_profile">
+                <img src="~/img/perfilfoto.png" alt="profile_pic" class="rounded-circle">
+            </div>
+
+            <div class="resume_content">
+                <div class="resume_item resume_info">
+
+                    <p class="bold">@ViewData["nombre"] @ViewData["apellido"]</p>
+                    <p class="bold1">@ViewData["perfil"]</p>
+
+                </div>
+
+
+
+                <div class="resume_item resume_info">
+                    <div class="title">
+                        <p class="bold">Personal Info</p>
+                    </div>
+
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["nacimiento"]<br />
+                            </div>
+                        </li>
+
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["genero"]
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["edo_civil"]
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-flag"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["nacionalidad"]
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["direccion"], @ViewData["zip_code"]
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fas fa-map-signs"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["ciudad"], @ViewData["estado"], @ViewData["pais"]
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["telefono"]
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </div>
+                            <div class="data">
+                                @ViewData["correo"]
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="resume_item resume_social">
+                    <div class="title">
+                        <p class="bold">Social Media</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fab fa-@ViewData["icon"]" aria-hidden="true"></i>
+                            </div>
+                            <div class="data">
+                                <p class="semi-bold">@ViewData["red"]</p>
+                                <p>&#64 @ViewData["usuario"]</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="resume_right">
+            <div class="resume_item resume_about">
+                <div class="title">
+                    <p class="bold">About Me</p>
+                </div>
+                <p class="font-weight-light">@ViewData["sobre_mi"]</p>
+            </div>
+            <div class="resume_item resume_work">
+                <div class="title">
+                    <p class="bold">Work Experience</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">@ViewData["mes_inicio"]/@ViewData["anio_inicio"] - @ViewData["mes_fin"]/@ViewData["anio_fin"]</div>
+                        <div class="info">
+                            <p class="semi-bold">@ViewData["puesto"]</p>
+                            <p class="semi-bold">@ViewData["empresa"]</p>
+                            <p class="font-weight-light">@ViewData["descripcion"] </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="resume_item resume_education">
+                <div class="title">
+                    <p class="bold">Education</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="date">@ViewData["mes_fin"]/@ViewData["anio_fin"]</div>
+                        <div class="info">
+                            <p class="semi-bold">@ViewData["carrera"] @ViewData["entidad_educativa"]</p>
+                            <p class="font-weight-light">@ViewData["campo_estudio"]</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="resume_item resume_skills">
+                <div class="title">
+                    <p class="bold">Skills</p>
+                </div>
+                <ul>
+                    <li>
+                        <div class="skill_name">
+                            @ViewData["habilidad"]
+                        </div>
+                        <div class="skill_progress">
+                            <span style="width: 40%;"></span>
+                        </div>
+                        <div class="skill_per">@ViewData["ha_porcentaje"]%</div>
+                    </li>
+
+                    <li>
+                        <div class="skill_name">
+                            @ViewData["idioma"]
+                        </div>
+                        <div class="skill_progress">
+                            <span style="width: @ViewData["ha_porcentaje"]%;"></span>
+                        </div>
+                        <div class="skill_per">@ViewData["ha_porcentaje"]%</div>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿@page
+@model atos.Pages.mainAppModel
+@{
+    ViewData["Title"] = "Applicant Page";
+    Layout = "_Layout2";
+}
+<link rel="stylesheet" href="~/css/perfil.css">
+
+<div class="container">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="img/perfilfoto.png" alt="Admin" class="rounded-circle" style="width: 85%;">
+                            <div class="mt-2 mb-1">
+                                <h3 style="font-weight: bold;">@ViewData["usr_nombre"]<br />@ViewData["usr_apellido"]</h3>
+                                <h5>@ViewData["usr_perfil"]</h5>
+                                <p class="text-secondary mb-1">@ViewData["usr_correo"]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 mb-3">
+                <div class="card">
+                    <div class="card-body ml-1 mr-1">
+                        <div class="mt-3">
+                            <h4>Profile</h4>
+
+                            <hr>
+                            <h6 class="mb-0">Status</h6>
+
+                            <p class="text-secondary mb-1">See the status of your application</p>
+
+                        </div>
+                        <div class="form-group">
+                            <h6>Application Progress</h6>
+                            <div class="progress mb-6" style="height: 10px">
+                                <div class="progress-bar bg-primary" role="progressbar" style="background-color: @ViewData["color"] !important; width: @ViewData["progress"]%" aria-valuenow="@ViewData["progress"]" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+                            <small>Videogame</small>
+                            <div class="progress mb-6" style="height: 5px">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-4">
+                <small>Results</small>
+                <div class="progress mb-6" style="height: 5px">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        <div class="mt-3">
+            <hr>
+            <h6 class="mb-0">CV Settings</h6>
+
+        </div>*@
+                        <br>
+
+                        <div class="form-row">
+                            <div class="col-md-1"></div>
+                            <div class="form-group col-md-5">
+                                <form method="post" asp-page-handler="cv">
+                                    <img src="img/CV_preview.png" alt="Admin" style="width: 75%;">
+                                    <input asp-for="id_aplicante" style="display: none" value="@ViewData["id_aplicante"]" />
+                                    <button class="btn btn-primary mt-2 ml-4" type="submit">Download CV</button>
+                                </form>
+                            </div>
+
+                            <div class="col-md-5">
+                                <h1>Game Score</h1>
+                                <h1>@ViewData["usr_score"]</h1>
+                                <form method="post" asp-page-handler="vGame">
+                                    @*<div class="form-group col-md-7">*@
+                                        <input asp-for="id_aplicante" style="display: none" value="@ViewData["id_aplicante"]" />
+                                        <button class="btn btn-primary" type="submit">Play</button>
+                                    @*</div>*@
+                                </form>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="buttons">
+
+                        <form method="post" asp-page-handler="del">
+                            <div class="form-group col-md-7">
+                                <input asp-for="id_aplicante" style="display: none" value="@ViewData["id_aplicante"]" />
+                                <button class="btn1 btn-primary" type="submit">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

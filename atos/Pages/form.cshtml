@@ -1,0 +1,394 @@
+﻿@page
+@model atos.Pages.formModel
+@{
+    Layout = "_Layout2";
+}
+
+
+<link rel="stylesheet" href="~/css/form.css">
+<div class="task-progress-header"></div>
+<div class="container">
+    <ul class="progressbar">
+        <li id="personalInfo" class=""><a onclick="personalInfo()">Personal Information</a></li>
+        <li id="contact" class=""><a onclick="contact()">Contact</a></li>
+        <li id="education" class=""><a onclick="education()">Education</a></li>
+        <li id="experience" class=""><a onclick="experience()">Experience</a></li>
+        <li id="skills" class=""><a onclick="skills()">Skills</a></li>
+        <li id="aboutMe" class=""><a onclick="aboutMe()">About Me</a></li>
+    </ul>
+</div>
+<div class="contenido">
+    <form method="post">
+        <div class="card mt-4 mb-3">
+
+            <div id="1" style="display: block;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>Personal Information</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="inputFName">First Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="inputFName"
+                                   placeholder=@ViewData["nombre"] disabled />
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputMiddleName">Middle Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="inputMiddleName"
+                                   placeholder="Middle Name"
+                                   asp-for="middleName"/>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputLName">Last Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="inputLName"
+                                   placeholder=@ViewData["apellido"] disabled />
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputSLName">Second Last Name</label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="inputSLName"
+                                   placeholder="Second Last Name"
+                                   asp-for="sLName" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputMState">Marital State</label>
+                            <select id="inputMState" class="form-control" asp-for="maritalState">
+                                <option disabled selected value="0">Marital State</option>
+                                @foreach (var item in Model.ListaEdoCivil)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="inputNationality">Nationality</label>
+                            <select id="inputNationality" class="form-control" asp-for="nationality">
+                                <option disabled selected value="0">Nationality</option>
+                                @foreach (var item in Model.ListaNacionalidad)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputDate">Birth Date</label>
+                            <input type="date" class="form-control" id="inputDate" asp-for="birthDate" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="inputGender">Gender</label>
+                            <select id="inputGender" class="form-control" asp-for="gender">
+                                <option disabled selected value="0">Gender</option>
+                                @foreach (var item in Model.ListaGenero)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputProfile">Profile</label>
+                            <select id="inputProfile" class="form-control" asp-for="profile">
+                                <option disabled selected value="0">Profile</option>
+                                @foreach (var item in Model.ListaPerfil)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                        @*<div class="form-group col-md-5">
+                            <label for="customFile">Picture</label>
+                            <div class="custom-file">
+                                <input type="file"
+                                       class="custom-file-input"
+                                       id="customFile" accept="image/*"/>
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+
+            <div id="2" style="display: none;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>Contact Information</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail">Email</label>
+                            <input type="text" class="form-control" id="inputEmail" placeholder=@ViewData["correo"] disabled>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputPhone">Phone Number</label>
+                            <input type="tel" class="form-control" id="inputPhone" placeholder="Phone Number" asp-for="phoneNum" value="">
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-9">
+                            <label for="inputAddress">Address</label>
+                            <input type="text" class="form-control" id="inputAddress" placeholder="Address" asp-for="address">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputZip">Zip Code</label>
+                            <input type="text" class="form-control" id="inputZip" placeholder="Zip Code" asp-for="zipCode" value="">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="City" asp-for="addCity">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <input type="text" class="form-control" id="inputState" placeholder="State" asp-for="addState">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCountry">Country</label>
+                            <select class="form-control" id="inputCountry" asp-for="addCountry">
+                                <option disabled selected value="0">Country</option>
+                                @foreach (var item in Model.ListaPais)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <h5>&nbspSocial Media</h5>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label class="sr-only" for="inputSocialMedia">Social Media</label>
+                            <select type="text" class="form-control mb-2" id="inlineFormInput" asp-for="socialNet">
+                                <option disabled selected>Social Network</option>
+                                @foreach (var item in Model.ListaRedSocial)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="sr-only" for="inputUsername">Username</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">&#64</div>
+                                </div>
+                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username" asp-for="usernameSM">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="3" style="display: none;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>Education</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputSchoolName">School Name</label>
+                            <input type="text" class="form-control" id="inputSchoolName" placeholder="School Name" asp-for="schoolName">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputSchoolLoc">School Location</label>
+                            <input type="text" class="form-control" id="inputSchoolLoc" placeholder="School Location" asp-for="schoolLocation">
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputDegree">Degree</label>
+                            <input type="text" class="form-control" id="inputDegree" placeholder="Degree" asp-for="degree">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputFStudy">Study Field</label>
+                            <input type="text" class="form-control" id="inputFStudy" placeholder="Field" asp-for="studyField">
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="inputGradMonth">Graduation Month</label>
+                            <select class="form-control" id="inputGradMonth" asp-for="gradMonth">
+                                <option value="0" disabled selected>Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputGradYear">Graduation Year</label>
+                            <input type="number" class="form-control" id="inputGradYear" placeholder="Year" asp-for="gradYear" value="2022" aria-valuemin="1940">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="4" style="display: none;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>Work Experience</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputJob">Job Title</label>
+                            <input type="text" class="form-control" id="inputJob" placeholder="Job Title" asp-for="jobName">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputCompanyName">Company/Organization Name</label>
+                            <input type="text" class="form-control" id="inputCompanyName" placeholder="Name" asp-for="jobCompany">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputJCity">City</label>
+                            <input type="text" class="form-control" id="inputCityCompany" placeholder="City" asp-for="jobCity">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputJCountry">Country</label>
+                            <select class="form-control" id="inputCountryCompany" asp-for="jobCountry">
+                                <option disabled selected value="0">Country</option>
+                                @foreach (var item in Model.ListaPais)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label for="inputJStartMonth">Start Month</label>
+                            <select class="form-control" id="inputJStartMonth" asp-for="jStartMonth">
+                                <option value="0" disabled selected>Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputJStartYear">Start Year</label>
+                            <input type="number" class="form-control" id="JobStartYear" placeholder="Year" asp-for="jStartYear" value="2022" aria-valuemin="1940">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputJEndMonth">End Month</label>
+                            <select class="form-control" id="inputJEndMonth" asp-for="jEndMonth">
+                                <option value="0" disabled selected>Month</option>
+                                <option value="1">January</option>
+                                <option value="2">February</option>
+                                <option value="3">March</option>
+                                <option value="4">April</option>
+                                <option value="5">May</option>
+                                <option value="6">June</option>
+                                <option value="7">July</option>
+                                <option value="8">August</option>
+                                <option value="9">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="inputJEndYear">End Year</label>
+                            <input type="number" class="form-control" id="JobEndYear" placeholder="Year" asp-for="jEndYear" value="2022" aria-valuemin="1940">
+                        </div>
+                    </div>
+                    <div class="form-row jobbox">
+                        <textarea class="form-control" id="JobDescription" rows="3" placeholder="Short description of the job..." asp-for="jobDesc"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div id="5" style="display: none;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>Skills</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+
+                            <label for="inputskill">Skills</label>
+                            <input type="text" class="form-control" id="inputskill" placeholder="Skill #1" asp-for="skillName">
+                            <input type="range" class="form-control-range slider" id="slider-skill-1" asp-for="skillProff">
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+
+                            <label for="inputLanguage">Languages</label>
+                            <select type="text" class="form-control" id="inputLanguage" asp-for="language">
+                                <option disabled selected>Language</option>
+                                @foreach (var item in Model.ListaIdioma)
+                                {
+                                    <option value="@Html.ValueFor(modelItem => item.id)">@Html.DisplayFor(modelItem => item.dato)</option>
+                                }
+                            </select>
+                            <input type="range" class="form-control-range slider" id="slider-language-1" asp-for="languageProff">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="6" style="display: none;">
+                <div class="titulo mt-1 mb-1">
+                    <h1>About Me</h1>
+                </div>
+                <div class="card-body">
+                    <div class="form-row">
+                        <label for="AboutMe">Tell us about you...</label>
+                        <textarea class="form-control" id="AboutMe" rows="12" placeholder="Type here." asp-for="aboutMe"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="buttons">
+            <a class="btn btn-primary" onclick="prev()" role="button" id="prev" style="display: none;">Back</a>
+            <a class="btn btn-primary" onclick="return(validate())" role="button" id="next">Next</a>
+            <button class="btn btn-primary" type="submit" id="submit" style="display: none;">Submit</button>
+        </div>
+    </form>
+</div>

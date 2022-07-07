@@ -1,0 +1,36 @@
+﻿@page
+@model atos.Pages.selectMenuModel
+@{
+    ViewData["Title"] = "Select Profile";
+}
+<link rel="stylesheet" href="css/selectMenu.css">
+<div class="welcome-text">
+    <h1>Log In</h1>
+    <br>
+    <br>
+</div>
+<div>
+    <section class="main-col">
+        <div class="stu">
+            <img src="img/stu.png" alt="stu" href="#" id="stu">
+        </div>
+        <br>
+        <p>APPLICANT</p>
+        <br>
+        <div class="text-center-stu">
+            <a class="nav-link" asp-page="/signinApp" id="select">Select</a>
+        </div>
+    </section>
+    <aside class="sidebar-col">
+        <div class="admin">
+            <img src="img/admin.png" alt="admin" href="#" id="admin">
+        </div>
+        <br>
+        <p>ADMINISTRATOR</p>
+        <br>
+        <div class="text-center-admin">
+            <a class="nav-link" asp-page="/loginAd" id="select">Select</a>
+        </div>
+    </aside>
+
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model atos.Pages.signinAppModel
+@{
+
+    ViewData["Title"] = "Sign In Applicant";
+}
+<link rel="stylesheet" href="css/signinApp.css">
+<div class="box-text">
+    <h1>Sign In</h1>
+    <br>
+    <h3>APPLICANT</h3>
+    <br>
+    <br>
+    <br>
+    <form class="box" method="POST">
+        <div id="left">
+            <label for="Name">First Name</label>
+            <input type="text" placeholder="First Name" class="Name" asp-for="fname" required>
+        </div>
+        <div id="right">
+            <label for="Lastname">Last Name</label>
+            <input type="text" placeholder="Last Name" class="Lastname" asp-for="lname" required>
+        </div>
+        <div id="center">
+            <label for="Username">E-mail</label>
+            <input type="text" placeholder="E-mail" class="Email" asp-for="email" required>
+            <p>@ViewData["Mensaje"]</p>
+            <button type="submit" id="signin">Sign In</button>
+        </div>
+    </form>
+</div>

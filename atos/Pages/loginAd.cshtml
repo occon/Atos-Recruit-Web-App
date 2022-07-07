@@ -1,0 +1,25 @@
+﻿@page
+@model atos.Pages.loginAdModel
+@{
+    ViewData["Title"] = "Log In Admin";
+}
+
+<link rel="stylesheet" href="css/signinAd.css">
+<div class="box-text">
+    <h1>Log In</h1>
+    <br>
+    <h3>ADMINISTRATOR</h3>
+    <br>
+    <br>
+    <br>
+    <form class="box" method="POST">
+        <div id="center">
+            <label for="Username">Username</label>
+            <input type="text" placeholder="Username" class="Username" asp-for="user" required>
+            <label for="Password">Password</label>
+            <input type="password" placeholder="Password" class="Password" asp-for="pwd" required>
+            <p>@ViewData["Mensaje"]</p>
+            <button type="submit" id="signin">Log In</button>
+        </div>
+    </form>
+</div>

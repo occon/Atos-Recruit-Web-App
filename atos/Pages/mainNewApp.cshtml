@@ -1,0 +1,17 @@
+﻿@page
+@model atos.Pages.mainNewAppModel
+@{
+    ViewData["Title"] = "Applicant Page";
+    Layout = "_Layout2";
+}
+
+<link rel="stylesheet" href="~/css/pageW.css">
+<div class="welcome-text">
+    <h1>@ViewData["msj"]</h1>
+    <h2>&nbspStart in ATOS today! </h2>
+    <br>
+    <ul class="btn-start">
+        <a class="nav-link" asp-page="/form" id="start">Start your CV</a>
+    </ul>
+
+</div>

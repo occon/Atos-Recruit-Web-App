@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/header.css" />
+    <script src="~/js/form.js"></script>
+    <title>@ViewData["Title"] - Atos</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <a class="nav-link" asp-page="/Index">
+            <img src="~/img/AtosLogo.png" alt="logo" id="logo">
+        </a>
+    </div>
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <footer class="footer text-muted">
+        <div>
+            &copy; 2022 - Atos Community - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+</body>
+</html>

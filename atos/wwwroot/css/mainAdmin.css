@@ -1,0 +1,201 @@
+@charset "utf.8";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap');
+@import "style.scss";
+
+body{
+    background: rgb(234, 234, 234);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.contenido{
+    padding: 5% 15%;
+}
+.card{
+    padding: 3% 5%;
+    border-radius: 80px;
+}
+
+.titulo {
+    padding-left: 2%;
+    font-weight: bold;
+}
+
+
+
+.btn-group{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.welcome-text{
+    margin: 300px auto;
+    text-align: left;
+}
+
+.welcome-text h1{
+    text-align: left;
+    color: #fff;
+    font-size: 80px;
+}
+
+
+.welcome-text p{
+    color: #fff;
+    font-size: 30px;
+}
+
+/*button {
+    background-color: #ffd256;
+    font-weight: bold;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}*/
+
+#login{
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+#login:hover{
+    background-color: #ffd256;
+}
+
+.side-bar{
+    float: right;
+    width: 30%;
+}
+
+.main-col{
+    float: left;
+    width: 70%;
+}
+
+label{
+    color: gray;
+}
+
+#buttons{
+    padding: 0 auto;
+    justify-content: center;
+}
+
+#backbutton {
+    margin: 0 auto;
+    float: left;
+}
+
+#nextbutton {
+    padding-left: 0 auto;
+    float: right;
+}
+
+.hide{
+    font-size: small;
+    display: none;
+}
+
+#menu {
+    width: 100%;
+}
+
+#menu .selector {
+    margin: 0 auto 15px auto;
+    height: 50px;
+    background-color: #fff;
+}
+
+#menu .selector:hover li{
+    width: 13.3333333333%;
+}
+
+#menu .selector li{
+    display: inline-block;
+    float: left;
+    width: 16.6666666667%;
+    text-align: center;
+    border-right: thin solid lightgray;
+}
+
+#menu .selector li:last-child {
+    border-right: none;
+}
+
+#menu .selector li:hover{
+    background: rgba(230, 230, 230, 1);
+    width: 33.3333333333%;
+}
+
+#menu .selector li a {
+    display: block;
+    height: 50px;
+    text-decoration: none;
+    font-size: 38px;
+    color: gray;
+}
+
+#menu .selector li a:visited {
+    color: gray;
+}
+
+#menu .selector li div {
+    margin-top: 5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.menuButtons{
+    padding: 0;
+    border-radius: 40px;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(234, 234, 234);
+    border: 2px solid dodgerblue;
+}
+
+.card_ren {
+    align-items: center;
+    justify-content: center;
+    border: 1px rgb(221, 221, 221) solid;
+    border-radius: 10px;
+    padding: 1% 1px 1px 1%;
+    font-size: 19px;
+    font-weight: bold;
+
+}
+
+.down{
+    align-items: center;
+    justify-content: center;
+    background-color: dodgerblue;
+    font-weight: bold;
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.btn {
+    width: 100% !important;
+    height: 45px !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: none;
+}

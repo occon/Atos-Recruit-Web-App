@@ -1,0 +1,350 @@
+@charset "utf.8";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500&display=swap");
+@import "style.scss";
+
+body {
+    background: rgb(234, 234, 234);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.btn {
+    width: 100px;
+    height: 45px;
+    background-color: rgb(48, 94, 194);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.contenido {
+    padding: 5% 15%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.card {
+    padding: 3% 5%;
+    border-radius: 80px;
+}
+
+.titulo {
+    padding-left: 2%;
+    font-weight: bold;
+}
+
+.btn-group {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.welcome-text {
+    margin: 300px auto;
+    text-align: left;
+}
+
+    .welcome-text h1 {
+        text-align: left;
+        color: #fff;
+        font-size: 80px;
+    }
+
+    .welcome-text p {
+        color: #fff;
+        font-size: 30px;
+    }
+
+button {
+    background-color: #ffd256;
+    font-weight: bold;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+#login {
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+    #login:hover {
+        background-color: #ffd256;
+    }
+
+.side-bar {
+    float: right;
+    width: 30%;
+}
+
+.main-col {
+    float: left;
+    width: 70%;
+}
+
+.nextbutton {
+    justify-content: center;
+}
+
+.backbutton {
+    display: flex;
+}
+
+label {
+    color: gray;
+}
+
+h5 {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+#buttons {
+    padding: 0 auto;
+    justify-content: center;
+}
+
+#backbutton {
+    margin: 0 auto;
+    float: left;
+}
+
+#nextbutton {
+    padding-left: 0 auto;
+    float: right;
+}
+
+.hide {
+    font-size: small;
+    display: none;
+}
+
+#menu {
+    width: 100%;
+}
+
+    #menu .selector {
+        margin: 0 auto 15px auto;
+        height: 50px;
+        background-color: #fff;
+    }
+
+        #menu .selector:hover li {
+            width: 13.3333333333%;
+        }
+
+        #menu .selector li {
+            display: inline-block;
+            float: left;
+            width: 16.6666666667%;
+            text-align: center;
+            border-right: thin solid lightgray;
+        }
+
+            #menu .selector li:last-child {
+                border-right: none;
+            }
+
+            #menu .selector li:hover {
+                background: rgba(230, 230, 230, 1);
+                width: 33.3333333333%;
+            }
+
+            #menu .selector li a {
+                display: block;
+                height: 50px;
+                text-decoration: none;
+                font-size: 38px;
+                color: gray;
+            }
+
+                #menu .selector li a:visited {
+                    color: gray;
+                }
+
+            #menu .selector li div {
+                margin-top: 5px;
+                font-weight: 600;
+                font-size: 13px;
+            }
+
+.menuButtons {
+    padding: 0;
+    border-radius: 40px;
+    height: 40px;
+    width: 40px;
+    background-color: rgb(234, 234, 234);
+    border: 2px solid dodgerblue;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.task-progress-header {
+    font-family: "Raleway", sans-serif;
+    font-size: 18px;
+    padding: 15px;
+    margin-left: 25px;
+}
+
+a {
+    text-decoration: none;
+    display: block;
+}
+
+.progressbar li img {
+    width: 25px;
+}
+
+.progressbar {
+    counter-reset: step;
+    width: 100%;
+}
+
+    .progressbar li {
+        list-style-type: none;
+        width: 16%;
+        float: left;
+        font-size: 15px;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        color: #7d7d7d;
+    }
+
+        .progressbar li:before {
+            width: 40px;
+            height: 40px;
+            content: counter(step);
+            counter-increment: step;
+            line-height: 30px;
+            border: 2px solid #7d7d7d;
+            display: block;
+            text-align: center;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background-color: white;
+        }
+
+        .progressbar li:after {
+            width: 100%;
+            height: 2px;
+            content: "";
+            position: absolute;
+            background-color: #7d7d7d;
+            top: 15px;
+            left: -50%;
+            z-index: -1;
+        }
+
+        .progressbar li:first-child:after {
+            content: none;
+        }
+
+        .progressbar li.active {
+            color: green;
+        }
+
+            .progressbar li.active:before {
+                border-color: #55b776;
+            }
+
+            .progressbar li.active + li:after {
+                background-color: #55b776;
+            }
+
+.jobbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#JobDescription {
+    width: 90%;
+}
+
+.slider {
+    -webkit-appearance: none; /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+    .slider:hover {
+        opacity: 1; /* Fully shown on mouse-over */
+    }
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        border-radius: 50%;
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        width: 20px; /* Set a specific slider handle width */
+        height: 20px; /* Slider handle height */
+        background: #04AA6D; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+        border-radius: 50%;
+        width: 20px; /* Set a specific slider handle width */
+        height: 20px; /* Slider handle height */
+        background: #04AA6D; /* Green background */
+        cursor: pointer; /* Cursor on hover */
+    }
+
+.form-btn {
+    width: 200px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#prev, #next {
+    color: white;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    display: inline-block;
+}
+
+#submit {
+    background-color: #ffd256;
+    font-weight: bold;
+    border: none;
+    color: rgb(0, 0, 0);
+}
+
+    #submit:hover {
+        background-color: #ffd256;
+        color: #303030;
+    }
+
+select{
+    background-color: white;
+}
